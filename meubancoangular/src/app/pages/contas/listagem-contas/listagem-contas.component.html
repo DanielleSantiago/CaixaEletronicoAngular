@@ -1,0 +1,31 @@
+<div class="container">
+  <div class="row">
+    <div class="col">
+      <h2 class="mt-5">Lista de Contas Bancárias</h2>
+      <table class="table table-striped mb-5 mt-3">
+        <thead>
+          <tr>
+            <th scope="col" width="10%">ID</th>
+            <th scope="col" width="20%">Agência</th>
+            <th scope="col" width="20%">Conta</th>
+            <th scope="col" width="20%">Saldo</th>
+            <th scope="col" width="30%">Cliente</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let conta of contas">
+            <th>{{conta.id}}</th>
+            <td>{{conta.agencia}}</td>
+            <td>{{conta.numero}}</td>
+            <td>{{conta.saldo.toFixed(2) | currency: 'BRL'}}</td>
+            <td>{{conta.cliente.nome}}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+
+
+

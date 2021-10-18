@@ -1,0 +1,41 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-6">
+      <h2 class="mt-5">Lista de Clientes</h2>
+    </div>
+    <div class="col-md-6 text-end">
+      <a class="btn btn-primary mt-5 me-5" routerLink="cadastrar"><i class="fas fa-plus me-2" ></i>Novo</a>
+    </div>
+  </div>
+  <div class="row">
+    <table class="table table-striped mb-5 mt-3">
+      <thead>
+        <tr>
+          <th scope="col" width="10%">ID</th>
+          <th scope="col" width="25%">Nome</th>
+          <th scope="col" width="35%">E-mail</th>
+          <th scope="col" width="10%" class="text-center">Ativo</th>
+          <th scope="col" width="20%"class="text-center">Ações</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let cliente of clientes">
+          <th>{{cliente.id}}</th>
+          <td>{{cliente.nome}}</td>
+          <td>{{cliente.email}}</td>
+          <td class="text-center">
+            <i *ngIf="cliente.ativo" class="fas fa-circle text-success"></i>
+            <i *ngIf="!cliente.ativo" class="fas fa-circle text-danger"></i>
+          </td>
+          <td class="text-center">
+            <a [routerLink]="['editar', cliente.id]" class="btn btn-secondary btn-sm">Editar</a>
+            <a (click)="apagar(cliente.id)" class="btn btn-danger btn-sm mx-1">Deletar</a>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+
+
